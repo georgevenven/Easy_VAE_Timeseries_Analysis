@@ -1,0 +1,25 @@
+<!-- Extend base -->
+{% extends "base.html" %}
+{% block head %}
+{% endblock %}
+
+{% block content %}
+<!-- Bootstrap red submit button-->
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+           
+                <button id="start_training" type="button" value="start_training" name="train_button" onclick="start_training()" class="btn btn-success" > Train </button>
+                <button id="stop_training" type="button" value="stop_training" name="train_button" onclick="stop_training()" class="btn btn-danger" style="display:none;"> Stop Training </button>
+                <button id="stop_training_no_save" type="button" value="stop_training_no_save" name="train_button" onclick="stop_training_no_save()" class="btn btn-danger" style="display:none;"> Stop Training and Don't Save</button>
+
+            <!---Bootstrap progress element -->
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+                    Epoch 0 / {{ epoch_num }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

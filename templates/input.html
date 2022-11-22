@@ -1,0 +1,61 @@
+<!-- Extend base -->
+{% extends "base.html" %}
+{% block head %}
+{% endblock %}
+
+{% block content %}
+<h1> Type of data: </h1>
+<!-- Add bootstrap radio options for flask form-->
+<form name="inputTypeForm" onsubmit="" action="" method="post">
+    <div class="radio" >
+        <label><input type="radio" name="filetype" onclick="audio_file_input()" value="raw_audio_files"> Audio Files (WAV) </label>
+    </div>
+    <div class="radio">
+        <label><input type="radio" name="filetype" onclick="sonogram_file_input()" value="sonogram"> Sonogram </label>
+    </div>
+    <div class="radio">
+        <label><input type="radio" name="filetype" onclick="segment_file_input()" value="segments"> Segments </label>
+    </div>
+
+    <!-- Explanation and location finder for audio files -->
+    <div id="audio_file_input" style="display:none">
+        <h3> Audio Files </h3>
+        <p> MAKE SURE YOUR DATA IS ORGANIZED EXACTLY AS SHOWN!! </p>
+        <p> If before/after only has one time point each, just include it under one folder 1/ </p>
+        <p class="no_line_spacing_p"> data/ </p>
+        <p class="no_line_spacing_p"> ├─ subject_n/ </p>
+        <p class="no_line_spacing_p"> │ ├─ pre/ </p>
+        <p class="no_line_spacing_p"> │ │ ├─ 1/ </p>
+        <p class="no_line_spacing_p"> │ │ │ ├─ file.wav </p>
+        <p class="no_line_spacing_p"> │ │ │ ├─ file.wav </p>
+        <p class="no_line_spacing_p"> │ │ │ ├─ file.wav </p>
+        <p class="no_line_spacing_p"> │ │ ├─ 2/ </p>
+        <p class="no_line_spacing_p"> │ │ ├─ 3/ </p>
+        <p class="no_line_spacing_p"> ├─ post/ </p>
+        <p class="no_line_spacing_p"> │ ├─ 4/ </p>
+        <p class="no_line_spacing_p"> │ ├─ 5/ </p>
+        <p class="no_line_spacing_p"> │ ├─ 6/ </p>
+    </div>
+
+    <!-- Explanation and location finder for sonogram files -->
+
+    <div id="sonogram_file_input" style="display:none">
+        <h3> Feature not implemented yet ... wait for further updates </h3>
+    </div>
+
+    <!-- Explanation and location finder for segment files-->
+
+    <div id="segment_file_input" style="display:none">
+        <h3> Feature not implemented yet ... wait for further updates </h3>
+    </div>
+
+    <!-- Bootstrap text form-->
+    <div id="dir_location_form" class="form-group"  style="display:none">
+        <label for="data_location">Data Location ( copy the full path name! ):</label>
+        <input type="text" class="form-control" id="data_location" name="data_location" placeholder="Enter data location">
+    </div>
+
+    <!-- Submit form -->
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>
+{% endblock %}

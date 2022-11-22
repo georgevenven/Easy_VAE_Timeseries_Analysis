@@ -1,0 +1,111 @@
+<!-- Extend base -->
+{% extends "base.html" %}
+{% block head %}
+{% endblock %}
+
+{% block content %}
+<h1>
+    Adjust Parameters
+</h1>
+
+<!-- Create a grid of 4 bootstrap cards, that have a light outline and look cool af -->
+<form name="inputTypeForm" onsubmit="" action="" method="post">
+    <div class="row">
+        <!-- Flask form-->
+
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"> Pre-Processing </h5>
+                    <!-- bootstrap toggle input like iphone settings menu-->
+                    <div id="remove_empty_space">
+                        <input id="remove_empty_space" onclick="show_remove_empty_space_settings()" type="checkbox" name="remove_empty_space">
+                        <label for="remove_empty_space"> Remove empty space </label>
+                    </div>
+                    <!-- two hidden textvalues, one indicating window size, the other indicating threshold, become unhidden when the above is activated -->
+                    <div id="window_size" style="display:none">
+                        <label for="window_size"> Window size: </label>
+                        <input type="text" class="form-control" id="window_size" name="window_size" placeholder="Enter window size">
+                    </div>
+                    <div id="threshold" style="display:none">
+                        <label for="threshold"> Threshold: </label>
+                        <input type="text" class="form-control" id="threshold" name="threshold" placeholder="Enter threshold">
+                    </div>
+
+                    <!-- text field that accepts only numbers -->
+                    <div id="segment_length">
+                        <label for="segment_length"> segment length (ms): </label>
+                        <input type="number" class="form-control" id="segment_length" name="segment_length" placeholder="Enter segment length (ms)">
+                    </div>
+                    <!-- text field that accepts only numbers -->
+                    <div id="segment_overlap">
+                        <label for="segment_overlap"> segment overlap (%): </label>
+                        <input type="number" class="form-control" id="segment_overlap" name="segment_overlap" placeholder="Enter segment overlap (%)">
+                    </div>
+                    <!-- segment_size -->
+                    <div id="segment_size">
+                        <label for="segment_size">  segment_size (pixels): </label>
+                        <input type="number" class="form-control" id="segment_size" name="segment_size" placeholder="Enter segment size (pixels):">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"> VAE </h5>
+                    <div id="latent_dims">
+                        <label for="latent_dims">  latent dimensions: </label>
+                        <input type="number" class="form-control" id="latent_dims" name="latent_dims" placeholder="Enter number of latent dims:">
+                    </div>
+                    <!-- Bootstrap range form -->
+                    <div id="latent_dim">
+                        <label for="latent_dim"> Model Complexity: </label>
+                        <input type="range" class="custom-range" id="latent_dim" name="model_complexity" min="1" max="100" step="1" value="50" disabled>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"> Training</h5>
+                    <div id="epoch_precentage_saved">
+                        <label for="epoch_precentage_saved"> epoch_precentage_saved </label>
+                        <input type="number" class="form-control" id="epoch_precentage_saved" name="epoch_precentage_saved" placeholder="Enter number precent of models saved">
+                    </div>
+                    <div id="latent_dims">
+                        <label for="latent_dims">  latent dimensions: </label>
+                        <input type="number" class="form-control" id="latent_dims" name="latent_dims" placeholder="Enter number of latent dims:">
+                    </div>
+                    <div id="epoch_num">
+                        <label for="epoch_num">  epoch_num: </label>
+                        <input type="number" class="form-control" id="epoch_num" name="epoch_num" placeholder="Enter number of epochs:">
+                    </div>
+                    <div id="batch_size">
+                        <label for="batch_size">  batch_size: </label>
+                        <input type="number" class="form-control" id="batch_size" name="batch_size" placeholder="Enter batch size:">
+                    </div>
+                    <div id="train_valid_split">
+                        <label for="train_valid_split">  train_valid_split: </label>
+                        <input type="number" class="form-control" id="train_valid_split" name="train_valid_split" placeholder="Enter train valid split:"> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Adjust Parameters</h5>
+                    <p class="card-text">Adjust the parameters for the analysis</p>
+                </div>
+            </div>
+        </div>
+        <!-- red bootstrap button -->
+        <a href="/input" type="btn" class="btn btn-danger"> Prev</a>
+        <!-- Bootstrap green button that submits the form -->
+        <button type="submit" class="btn btn-success"> Next </button>
+
+    </div>
+</form>
+{% endblock %}

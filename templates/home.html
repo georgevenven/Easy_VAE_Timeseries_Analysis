@@ -1,0 +1,18 @@
+<!-- Extend base -->
+{% extends "base.html" %}
+{% block head %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="jumbotron">
+                <h1> Welcome to the Speech Analysis Tool </h1>
+                <p> This tool is designed to help you analyze speech data. </p>
+                <p> <a class="btn btn-primary btn-lg" href="{{ url_for('input') }}" role="button"> Get Started </a> </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
